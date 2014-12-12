@@ -1,0 +1,50 @@
+﻿<?php
+error_reporting(0);
+ini_set(“display_errors”, 0 );
+?>
+<?php 
+$acao=$_GET['acao'];
+$datainicial= $_POST['datainicial'];
+$datafinal= $_POST['datafinal'];
+
+switch ($acao){
+	case 'produto':
+	$relatorio=new Relatorio("produto");
+	$relatorio->Visualizar();
+	break;
+	
+	case 'fornecedor':
+	$relatorio=new Relatorio("fornecedor");
+	$relatorio->Visualizar();
+	break;
+	
+	case 'professor':
+	$relatorio=new Relatorio("professor");
+	$relatorio->Visualizar();
+	break;
+	
+	case 'entrada':
+	$relatorio=new Relatorio("entrada");
+	$relatorio->Entrada($datainicial,$datafinal);
+	break;
+
+	case 'aluno':
+	$relatorio=new Relatorio("aluno");
+	$relatorio->Entrada($datainicial,$datafinal);
+	break;
+	
+	case 'saida':
+	$relatorio=new Relatorio("saida");
+	$relatorio->Saida($datainicial,$datafinal);
+	break;
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+?>

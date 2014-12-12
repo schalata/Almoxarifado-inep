@@ -1,0 +1,38 @@
+<?php 
+$acao=$_GET['acao'];
+//$id=$_GET['id'];
+$id=(isset($_GET['id']))?$_GET['id']:"0";
+switch ($acao){
+	case 'formcadastro':
+	$form=new Form("aluno");
+	$form->FormCadastro('','cadastrar');	
+	break;
+	
+	case 'cadastrar':
+	$aluno=new alunos("");
+	$aluno->Cadastrar();
+	break;
+	
+	case 'listar':
+	$aluno=new alunos();
+	$aluno->Listar();
+	break;
+	
+	case 'deletar':
+	$aluno=new alunos();
+	$aluno->Deletar($id);
+	break;
+	
+	case 'formeditar':
+	$form=new Form("aluno");
+	$form->FormEditar("editar",$id);
+	break;
+	
+	case 'editar':
+	$aluno=new alunos();
+	$aluno->Atualizar($id);
+	
+}
+
+
+?>
